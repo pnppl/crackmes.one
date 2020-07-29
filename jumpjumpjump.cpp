@@ -3,7 +3,7 @@
 
 char newStr [10];
 
-char * strcat_str(void)
+char * strcat_str(void) // generates flag
 {
   int m;
   
@@ -19,7 +19,6 @@ char * strcat_str(void)
 int main(void)
 {
   int inStrLen;
-  int bigN;
   char inStr [112];
   char *flag;
   int n;
@@ -29,27 +28,26 @@ int main(void)
   printf("enter the magic string");
   fgets(inStr,100,stdin);
   inStrLen = strlen(inStr);
-                    // string length <= 10 
-  if (inStrLen < 0xc) {
+                   
+  if (inStrLen < 0xc) { // string length <= 10 
     n = 0;
     while( true ) { // for loop that iterates through inStr  
-      std::cout << "\nbigN: " << bigN;
-      std::cout << "\ncounter: " << counter;
-      std::cout << "\ninStr[n]: " << inStr[n]; 
-      std::cout << "\n(int)inStr[n]: " << (int)inStr[n];
-      bigN = (double)n;
+      // std::cout << "\nbigN: " << n;
+      // std::cout << "\ncounter: " << counter;
+      // std::cout << "\ninStr[n]: " << inStr[n]; 
+      // std::cout << "\n(int)inStr[n]: " << (int)inStr[n];
       inStrLen = strlen(inStr);
-      if (inStrLen <= bigN) break;
+      if (inStrLen <= n) break;
       counter = counter + inStr[n];
       n = n + 1;
     }
-    std::cout << "\n\n\n" << counter;
+    // std::cout << "\n\n\n" << counter;
     if (counter == 1000) {
       flag = strcat_str();
       printf("flag is flag{");
       n = 0;
       while (n < 10) {
-        std::cout << (int)flag[n];
+        std::cout << flag[n];
         //printf((char)flag[n]);
         n = n + 1;
       }
